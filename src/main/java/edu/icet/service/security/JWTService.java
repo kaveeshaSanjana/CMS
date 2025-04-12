@@ -18,10 +18,10 @@ public class JWTService {
     public JWTService(){
         try {
             secretKey = Keys.hmacShaKeyFor(
-                                KeyGenerator.getInstance("HmacSHA256")
-                                .generateKey()
-                                .getEncoded()
-                        );
+                    KeyGenerator.getInstance("HmacSHA256")
+                            .generateKey()
+                            .getEncoded()
+            );
         }catch (Exception e){
             throw new RuntimeException(e);
         }

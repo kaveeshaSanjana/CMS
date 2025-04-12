@@ -17,17 +17,6 @@ import java.util.List;
 public class ProfileController {
     private final ProfileService profileService;
 
-    @GetMapping("/admin/all")
-    public ResponseEntity<List<UserResponseDTO>> getAll() {
-        List<UserResponseDTO> list = profileService.getAll();
-        return ResponseEntity.ok(list);
-    }
-    @GetMapping("/admin/{role}")
-    public ResponseEntity<List<UserResponseDTO>> getAllByUserType(@PathVariable("role") UserRole userRole) {
-
-        List<UserResponseDTO> list = profileService.getAll();
-        return ResponseEntity.ok(list);
-    }
     @GetMapping("/admin/{id}")
     public ResponseEntity<UserResponseDTO> getById(@PathVariable("id") Long id) {
         UserResponseDTO user = profileService.getById(id);
