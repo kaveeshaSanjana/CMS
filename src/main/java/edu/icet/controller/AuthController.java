@@ -1,14 +1,14 @@
 package edu.icet.controller;
 
 import edu.icet.dto.request.LoginRequestDTO;
+import edu.icet.dto.request.UserRequestDTO;
 import edu.icet.dto.response.LoginResponseDTO;
 import edu.icet.service.AuthService;
 import edu.icet.service.security.JWTService;
 import jakarta.servlet.http.HttpServletRequest;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.lang.NonNull;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,8 +37,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public String getname(){
-        SecurityContextHolder.getContext().getAuthentication();
-        return SecurityContextHolder.getContext().getAuthentication()+"";
+    public ResponseEntity<LoginResponseDTO> register(HttpServletRequest httpServletRequest,@RequestBody  @NonNull UserRequestDTO userRequestDTO){
+        return ResponseEntity.ok().body(authService.register(httpServletRequest,userRequestDTO));
     }
 }

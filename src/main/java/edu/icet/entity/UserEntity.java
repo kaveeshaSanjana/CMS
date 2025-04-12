@@ -15,6 +15,8 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userID;
+    private String profileImage;
+    private String name;
     private String username;
     private String password;
     private String email;

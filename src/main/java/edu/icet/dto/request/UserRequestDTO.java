@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserRequestDTO {
     private Long userID;
+    private String profileImage;
     private String username;
     private String password;
     private String email;

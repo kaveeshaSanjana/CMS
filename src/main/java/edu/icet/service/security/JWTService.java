@@ -6,6 +6,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Map;
 
@@ -17,11 +18,7 @@ public class JWTService {
 
     public JWTService(){
         try {
-            secretKey = Keys.hmacShaKeyFor(
-                    KeyGenerator.getInstance("HmacSHA256")
-                            .generateKey()
-                            .getEncoded()
-            );
+            secretKey = Keys.hmacShaKeyFor("jwtConfig.getSecret()".getBytes(StandardCharsets.UTF_8));
         }catch (Exception e){
             throw new RuntimeException(e);
         }
