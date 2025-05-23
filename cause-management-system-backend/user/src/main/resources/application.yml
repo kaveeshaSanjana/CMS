@@ -1,0 +1,48 @@
+server:
+  port: 56749
+
+spring:
+  application:
+    name: user
+  datasource:
+    url: jdbc:mysql://localhost:3306/cms
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sdl: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1086503022423-34of9j6a9rg29aa3gh7v6jod26k723l2.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - profile
+              - email
+            redirect-uri: "http://localhost:8080/login/oauth2/code/{registrationId}"
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/cms-realm
+
+eureka:
+  client:
+    server-url:
+      defaultZone: http://localhost:8761/eureka
+
+keycloak:
+  auth-server-url: http://localhost:8080
+  realm: cms-realm
+  client-id: cmsClient
+  client-secret: lYRj2DW6pVAwbffyZywwVraykxcdwRbn
+  adminUsername: kaveesha
+  adminPassword: 12345
+
