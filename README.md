@@ -42,7 +42,7 @@ A modern web-based application designed to manage social causes with robust user
 ## 🖼️ Image Directory Structure
 
 ### Backend
-- [System architecture diagram](img/cms_backend_visual_digram.png)
+- ![System architecture diagram](img/cms_backend_visual_digram.png)
 
 ### Frontend
 - ![Login](img/login.png)
