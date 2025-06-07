@@ -22,3 +22,9 @@ eureka:
   client:
     server-url:
       defaultZone: http://localhost:8761/eureka
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
